@@ -1,0 +1,7 @@
+{
+  "name": "cait-toolbox",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
