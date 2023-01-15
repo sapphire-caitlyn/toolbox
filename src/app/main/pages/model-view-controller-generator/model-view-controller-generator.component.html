@@ -25,7 +25,7 @@
                       <nier-button style="width: 100%; position: relative;" [icon]="0" [button_text]="item.Label" (click)="Remove(i)"></nier-button>
                     </ion-col> -->
                     <ion-col *ngFor="let item of Variables; let i = index" size="12" style="padding: 0;" class="cl">
-                      <nier-button style="width: 100%; position: relative; margin-bottom: .25em;" [icon]="0" [button_text]="item.Label" (click)="Remove(i)" [remove_indicator_status]="true"></nier-button>
+                      <nier-button style="width: 100%; position: relative; margin-bottom: .25em;" [ngClass]="{'np' : i == Variables.length - 1}" [icon]="0" [button_text]="item.Label" (click)="Remove(i)" [remove_indicator_status]="true"></nier-button>
                     </ion-col>
                     <ion-col *ngIf="Variables.length == 0" size="12" style="padding: 0;" class="cl">
                       <nier-button style="width: 100%; position: relative;" [icon]="0" [button_text]="'No Variables'" [disabled]="true" [remove_indicator_status]="true"></nier-button>
@@ -98,22 +98,25 @@
           </ion-row>
         </ion-grid>
 
-        <ion-grid style="--ion-grid-columns: 10; padding: 0;">
+        <ion-grid style="--ion-grid-columns: 18; padding: 0; ">
           <ion-row>
-            <ion-col size="2">
+            <ion-col size="3">
               <input type="text" class="wh-100" [(ngModel)]="input_variable_name" placeholder="VariableName">
             </ion-col>
-            <ion-col size="2">
-              <input type="text" class="wh-100" [disabled]="currentVariableType != 7" [(ngModel)]="input_variable_type" placeholder="CustomVariableType">
+            <ion-col size="3">
+              <input type="text" class="wh-100" [disabled]="currentVariableType != 8" [(ngModel)]="input_variable_type" placeholder="CustomVariableType">
             </ion-col>
-            <ion-col size="2">
-              <nier-button [button_text]="'Generate'" style="width: 100%;" [remove_indicator_status]="true" [icon]="1" (click)="Generate()"></nier-button>
+            <ion-col size="3">
+              <input type="text" class="wh-100" [(ngModel)]="input_model_name" placeholder="ModelName">
             </ion-col>
-            <ion-col size="2">
-              <nier-button [button_text]="'Reset'"    style="width: 100%;" [remove_indicator_status]="true" [icon]="1" (click)="Reset()"></nier-button>
-            </ion-col>
-            <ion-col size="2">
+            <ion-col size="3">
               <nier-button [button_text]="'Add Var'"  style="width: 100%;" [remove_indicator_status]="true" (click)="Add()" ></nier-button>
+            </ion-col>
+            <ion-col size="3">
+              <nier-button [button_text]="'Reset'"    style="width: 100%;" [remove_indicator_status]="true" [icon]="1" (click)="Reset()" class="red_nier_button"></nier-button>
+            </ion-col>
+            <ion-col size="3">
+              <nier-button [button_text]="'Generate'" style="width: 100%;" [remove_indicator_status]="true" [icon]="1" (click)="Generate()"></nier-button>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -129,7 +132,7 @@
                   [button_text]="item.name"
                   [force_hover]="isFileCurrentlySelected(item.id)"
                   [remove_indicator_status]="true"
-                  style="width: 100%; margin-bottom: .25em;"
+                  style="width: 100%;"
                   (click)="RemoveOrAddFile(item.id)"
                 >
                 </nier-button>

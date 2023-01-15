@@ -3,6 +3,18 @@ $color: #4D493E;
 $letterSpacing: .1rem;
 $boxShadow: 3px 3px 0 rgba($color, .6);
 
+$red: #cd664d;
+$red_btn: #c77765;
+$brown: #877b64;
+$salmon: #bcaf91;
+$yellow: #e6ddaf;
+$white: #e4dfcb;
+$dark: #6c6b62;
+
+.np{
+  margin-bottom : 0 !important;
+}
+
 .string,
 .int,
 .long,
@@ -26,28 +38,28 @@ $boxShadow: 3px 3px 0 rgba($color, .6);
 }
 
 .string{
-  background-color: rgb(128, 255, 0);
+  background-color: $red_btn;
 }
 .int{
-  background-color: rgb(255, 0, 221);
+  background-color: $white;
 }
 .long{
-  background-color: aqua;
+  background-color: $brown;
 }
 .datetime{
-  background-color: rgb(0, 255, 17);
+  background-color: $salmon;
 }
 .bool{
-  background-color: rgb(0, 0, 0);
+  background-color: $yellow;
 }
 .float{
-  background-color: rgb(246, 255, 0);
+  background-color: #e6cebc;
 }
 .decimal{
-  background-color: rgb(255, 81, 0);
+  background-color: #abccd3;
 }
 .custom{
-  background-color: rgb(40, 126, 0);
+  background-color: #636b4d;
 }
 
 .lmb{

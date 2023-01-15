@@ -136,12 +136,18 @@ export class CodeGenService {
       }
 
       if(_service){
-        //TO-DO
+        var stringVariablesLinq : string = this.GetStringVariablesLinqObject(Variables, modelNameDown);
+        var stringObjectView : string = this.GetStringVariablesViewModelObject(Variables);
+        var stringObject : string = this.GetStringVariablesObject(Variables);
         var ServiceFile = service_file;
 
         ServiceFile = ServiceFile.replaceAll("##imports##", "\n" + Project.ServiceHeader);
         ServiceFile = ServiceFile.replaceAll("##namespace##", Project.ServiceNamespace);
         ServiceFile = ServiceFile.replaceAll("##name_up##", modelNameUp);
+        ServiceFile = ServiceFile.replaceAll("##name_down##", modelNameDown);
+        ServiceFile = ServiceFile.replaceAll("##variables_linq_object##", stringVariablesLinq);
+        ServiceFile = ServiceFile.replaceAll("##variables_object_view_model##", stringObjectView);
+        ServiceFile = ServiceFile.replaceAll("##variables_object_view##", stringObject);
 
         files.push({
           FileContent: ServiceFile,

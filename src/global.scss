@@ -30,6 +30,7 @@ $color: #4D493E;
 $letterSpacing: .1rem;
 $boxShadow: 3px 3px 0 rgba($color, .6);
 $content_height: 86vh;
+$red: #cd664d;
 
 main{
   height: $content_height;
@@ -239,4 +240,19 @@ ion-toast.custom-toast {
   text-align: left;
   text-transform: uppercase;
   letter-spacing: .7rem;
+}
+
+
+.red_nier_button{
+  #button_container{
+    button{
+      color: $red !important;
+      span{
+        color: $red !important;
+      }
+      div{
+        background-color: $red !important;
+      }
+    }
+  }
 }

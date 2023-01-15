@@ -1,4 +1,4 @@
-import { FileStructure, GuntnerResourceStructure } from './../../../model-files-strings.model';
+import { FileStructure, GuntnerResourceStructure, GSToolsStructure } from './../../../model-files-strings.model';
 import { Component, OnInit } from '@angular/core';
 import { NierString } from 'src/app/app.service';
 import { CodeGenService } from 'src/app/code-gen.service';
@@ -58,7 +58,7 @@ export class ModelViewControllerGeneratorComponent implements OnInit {
   Projects: Project[] =
   [
     { name: "Guntner"       , id : 0, Files : FilesGuntnerResource , Project : GuntnerResourceStructure },
-    { name: "GSTools"       , id : 1, Files : FilesGSTools         , Project : GuntnerResourceStructure },
+    { name: "GSTools"       , id : 1, Files : FilesGSTools         , Project : GSToolsStructure },
     { name: "ArpiNextPaint" , id : 2, Files : FilesArpiNextPaint   , Project : GuntnerResourceStructure },
     //{ name: "ZABrazil"      , id : 3, Files : FilesZaBrazil        , Project : GuntnerResourceStructure },
   ];
@@ -234,6 +234,11 @@ export class ModelViewControllerGeneratorComponent implements OnInit {
 
     if(currentProjectObject == null){
       this.Present("No Project Selected");
+      return;
+    }
+
+    if(this.input_model_name == null || this.input_model_name == ""){
+      this.Present("No model Name!");
       return;
     }
 
