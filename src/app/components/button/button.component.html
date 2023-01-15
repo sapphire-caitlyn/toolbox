@@ -1,0 +1,22 @@
+<div class="row" [ngClass]="{'disabled' : disabled, 'forced_hover': force_hover, 'menu_height' : menu}" id="button_container">
+  <div [hidden]="force_hover || remove_indicator_status">
+    <ion-img [hidden]="!(indicator_status == 1)" [src]="file1" class="indicator"></ion-img> <!-- White -->
+    <ion-img [hidden]="!(indicator_status == 2)" [src]="file2" class="indicator"></ion-img> <!-- Black -->
+  </div>
+  <div [hidden]="!force_hover || remove_indicator_status">
+    <ion-img [src]="file1" class="indicator"></ion-img> <!-- White -->
+  </div>
+  <button type="button" [disabled]="disabled" (click)="onClickEvent()" (mouseenter)="hoverChange(true)" (mouseleave)="hoverChange(false)">
+    <div style="padding: .15em;" class="va ha">
+      <!-- Chip -->
+      <svg width="100%"
+          height="100%"
+          viewBox="0 0 9 9"
+          *ngIf="icon == 0"
+      >
+        <path d="M 1 1 L 2 1 L 2 0 L 3 0 L 3 1 L 4 1 L 4 0 L 5 0 L 5 1 L 6 1 L 6 0 L 6 0 L 7 0 L 7 1 L 8 1 L 8 2 L 9 2 L 9 3 L 8 3 L 8 4 L 9 4 L 9 5 L 8 5 L 8 6 L 9 6 L 9 7 L 8 7 L 8 8 L 7 8 L 7 9 L 6 9 L 6 8 L 5 8 L 5 9 L 4 9 L 4 8 L 3 8 L 3 8 L 3 9 L 2 9 L 2 8 L 1 8 L 1 7 L 0 7 L 0 6 L 1 6 L 1 5 L 0 5 L 0 4 L 1 4 L 1 3 L 0 3 L 0 2 L 1 2 L 1 1 L 2 2 L 2 7 L 7 7 L 7 2 L 2 2"></path>
+      </svg>
+    </div>
+    <span> {{title.CurrentString}} </span>
+  </button>
+</div>

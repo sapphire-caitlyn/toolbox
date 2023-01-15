@@ -24,3 +24,219 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+$bgColor: #C8C2AA;
+$color: #4D493E;
+$letterSpacing: .1rem;
+$boxShadow: 3px 3px 0 rgba($color, .6);
+$content_height: 86vh;
+
+main{
+  height: $content_height;
+}
+
+*:focus {
+  outline: none !important;
+}
+
+::selection {
+  color: #C8C2AA;
+  background: #4D493E;
+}
+
+.container {
+  padding: 0 2rem;
+  white-space: nowrap;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: .7rem;
+  text-shadow: .3rem .3rem 0 rgba(77, 73, 62,.3);
+
+  span {
+    margin-right: -.7rem;
+  }
+
+  small {
+    &::before {
+      content: "–";
+    }
+    font-weight: 500;
+    text-transform: none;
+    text-shadow: none;
+    letter-spacing: $letterSpacing;
+  }
+}
+
+.pattern {
+  border-top: 2px solid $color;
+}
+
+.pattern-inner {
+  height: 27px;
+  background-size: 50px 3px,
+    50px 1px, 50px 1px, 50px 1px, 50px 1px,
+    50px 1px, 50px 1px, 50px 1px, 50px 1px;
+  background-position: 0 0,
+    22px 4px, 22px 5px, 22px 6px, 22px 7px,
+    28px 12px, 28px 13px, 28px 14px, 28px 15px;
+  background-image: linear-gradient(90deg, $color, $color 10px, transparent 10px),
+
+    linear-gradient(90deg,
+      rgba($color, .4), rgba($color, .4) 1px,
+      rgba($color, .8) 1px, rgba($color, .8) 2px,
+      rgba($color, .9) 2px, rgba($color, .9) 3px,
+      rgba($color, .4) 3px, rgba($color, .4) 4px,
+      transparent 4px, transparent 12px,
+      rgba($color, .4) 12px, rgba($color, .4) 13px,
+      rgba($color, .8) 13px, rgba($color, .8) 14px,
+      rgba($color, .9) 14px, rgba($color, .9) 15px,
+      rgba($color, .4) 15px, rgba($color, .4) 16px,
+      transparent 16px),
+    linear-gradient(90deg,
+      rgba($color, .9), rgba($color, .9) 1px,
+      rgba($color, 1) 1px, rgba($color, 1) 2px,
+      rgba($color, 1) 2px, rgba($color, 1) 3px,
+      rgba($color, .9) 3px, rgba($color, .9) 4px,
+      transparent 4px, transparent 12px,
+      rgba($color, .9) 12px, rgba($color, .9) 13px,
+      rgba($color, 1) 13px, rgba($color, 1) 14px,
+      rgba($color, 1) 14px, rgba($color, 1) 15px,
+      rgba($color, .9) 15px, rgba($color, .9) 16px,
+      transparent 16px),
+    linear-gradient(90deg,
+      rgba($color, .9), rgba($color, .9) 1px,
+      rgba($color, 1) 1px, rgba($color, 1) 2px,
+      rgba($color, 1) 2px, rgba($color, 1) 3px,
+      rgba($color, .9) 3px, rgba($color, .9) 4px,
+      transparent 4px, transparent 12px,
+      rgba($color, .9) 12px, rgba($color, .9) 13px,
+      rgba($color, 1) 13px, rgba($color, 1) 14px,
+      rgba($color, 1) 14px, rgba($color, 1) 15px,
+      rgba($color, .9) 15px, rgba($color, .9) 16px,
+      transparent 16px),
+    linear-gradient(90deg,
+      rgba($color, .4), rgba($color, .4) 1px,
+      rgba($color, .8) 1px, rgba($color, .8) 2px,
+      rgba($color, .9) 2px, rgba($color, .9) 3px,
+      rgba($color, .4) 3px, rgba($color, .4) 4px,
+      transparent 4px, transparent 12px,
+      rgba($color, .4) 12px, rgba($color, .4) 13px,
+      rgba($color, .8) 13px, rgba($color, .8) 14px,
+      rgba($color, .9) 14px, rgba($color, .9) 15px,
+      rgba($color, .4) 15px, rgba($color, .4) 16px,
+      transparent 16px),
+
+    linear-gradient(90deg,
+      rgba($color, .4), rgba($color, .4) 1px,
+      rgba($color, .8) 1px, rgba($color, .8) 2px,
+      rgba($color, .9) 2px, rgba($color, .9) 3px,
+      rgba($color, .4) 3px, rgba($color, .4) 4px,
+      transparent 4px),
+    linear-gradient(90deg,
+      rgba($color, .9), rgba($color, .9) 1px,
+      rgba($color, 1) 1px, rgba($color, 1) 2px,
+      rgba($color, 1) 2px, rgba($color, 1) 3px,
+      rgba($color, .9) 3px, rgba($color, .9) 4px,
+      transparent 4px),
+    linear-gradient(90deg,
+      rgba($color, .9), rgba($color, .9) 1px,
+      rgba($color, 1) 1px, rgba($color, 1) 2px,
+      rgba($color, 1) 2px, rgba($color, 1) 3px,
+      rgba($color, .9) 3px, rgba($color, .9) 4px,
+      transparent 4px),
+    linear-gradient(90deg,
+      rgba($color, .4), rgba($color, .4) 1px,
+      rgba($color, .8) 1px, rgba($color, .8) 2px,
+      rgba($color, .9) 2px, rgba($color, .9) 3px,
+      rgba($color, .4) 3px, rgba($color, .4) 4px,
+      transparent 4px);
+  background-repeat: repeat-x;
+}
+
+.va {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  flex: 1;
+}
+
+.content {
+  padding-left: 4rem;
+  background-image:
+  linear-gradient(90deg,
+  rgba($color, .2)     ,
+  rgba($color, .2) 14px,
+  transparent      14px,
+  transparent      20px,
+  rgba($color, .2) 20px,
+  rgba($color, .2) 23px,
+  transparent      23px);
+  margin-bottom: 2rem;
+}
+
+img {
+  box-shadow: $boxShadow;
+}
+
+.pattern-bottom{
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+#content {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+#content::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+nier-button{
+  display: inline-block;
+}
+
+.nier-heading{
+  border: solid #454138;
+  border-width: 1px 0;
+  padding: 0.1rem 1rem;
+}
+
+.shadow{
+  box-shadow: $boxShadow;
+}
+
+input{
+  padding: 0.5rem;
+  font-size: 1em;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  background-color: #dcd8c0;
+  color: inherit;
+  font-family: inherit;
+  letter-spacing: inherit;
+  font-weight: inherit;
+}
+
+
+ion-toast.custom-toast {
+  --background: #4D493E;
+  --box-shadow: 3px 3px 0 rgba(#4D493E, .6);
+  --color: #C8C2AA;
+  --border-radius: 0;
+  white-space: nowrap;
+  width: 100%;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: .7rem;
+}

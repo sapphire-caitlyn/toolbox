@@ -1,0 +1,144 @@
+<main>
+  <ion-grid class="wh-100" style="--ion-grid-columns: 11;">
+    <ion-row class="wh-100" style="margin: 0; padding: 0; overflow: hidden;">
+      <ion-col size="5" style="margin: 0; padding: 0">
+        <div class="container wh-100" style="white-space: nowrap;">
+          <div>
+            <h1>
+              <span>{{title.CurrentString}} </span>
+              <small *ngIf="current.CurrentString != '' " > {{current.CurrentString}}</small>
+            </h1>
+          </div>
+
+          <div class="content">
+            <p>
+              Generates files in the model - view - controller architecture for C#
+            </p>
+
+          </div>
+          <div class="content" style="padding-left: 3rem;">
+            <div id="list_content">
+              <div id="list">
+                <ion-grid>
+                  <ion-row>
+                    <!-- <ion-col *ngFor="let item of Variables; let i = index" size="12" style="padding: 0; left:  -2.95em;">
+                      <nier-button style="width: 100%; position: relative;" [icon]="0" [button_text]="item.Label" (click)="Remove(i)"></nier-button>
+                    </ion-col> -->
+                    <ion-col *ngFor="let item of Variables; let i = index" size="12" style="padding: 0;" class="cl">
+                      <nier-button style="width: 100%; position: relative; margin-bottom: .25em;" [icon]="0" [button_text]="item.Label" (click)="Remove(i)" [remove_indicator_status]="true"></nier-button>
+                    </ion-col>
+                    <ion-col *ngIf="Variables.length == 0" size="12" style="padding: 0;" class="cl">
+                      <nier-button style="width: 100%; position: relative;" [icon]="0" [button_text]="'No Variables'" [disabled]="true" [remove_indicator_status]="true"></nier-button>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </ion-col>
+      <ion-col size="1" style="margin: 0; padding: 0; height: 90vh;" class="va">
+        <div class="box_variables">
+          <div style="height: {{varHeight}}%;" *ngFor="let item of strings"   class="string">   </div>
+          <div style="height: {{varHeight}}%;" *ngFor="let item of ints"      class="int">      </div>
+          <div style="height: {{varHeight}}%;" *ngFor="let item of longs"     class="long">     </div>
+          <div style="height: {{varHeight}}%;" *ngFor="let item of datetimes" class="datetime"> </div>
+          <div style="height: {{varHeight}}%;" *ngFor="let item of bools"     class="bool">     </div>
+          <div style="height: {{varHeight}}%;" *ngFor="let item of floats"    class="float">    </div>
+          <div style="height: {{varHeight}}%;" *ngFor="let item of decimals"  class="decimal">  </div>
+          <div style="height: {{varHeight}}%;" *ngFor="let item of customs"   class="custom">   </div>
+        </div>
+      </ion-col>
+      <ion-col>
+
+        <ion-grid style="--ion-grid-columns: 12; padding: 0;">
+          <ion-row>
+            <ion-col size="3">
+              <nier-button
+                *ngFor="let item of variableButtons"
+                style="width: 100%; margin-bottom: .25em;"
+                [force_hover]="currentVariableType == item.id"
+                [button_text]="item.name"
+                [remove_indicator_status]="true"
+                (click)="currentVariableType = item.id">
+              </nier-button>
+            </ion-col>
+            <ion-col size="3" *ngIf="currentVariableType != -1" >
+              <nier-button
+                *ngFor="let item of variableTypesNull"
+                style="width: 100%; margin-bottom: .25em;"
+                [force_hover]="currentVariableNull == item.id"
+                [button_text]="item.name"
+                [remove_indicator_status]="true"
+                (click)="currentVariableNull = item.id">
+              </nier-button>
+            </ion-col>
+            <ion-col size="3" *ngIf="currentVariableNull != -1" >
+              <nier-button
+                *ngFor="let item of variableTypesList"
+                style="width: 100%; margin-bottom: .25em;"
+                [force_hover]="currentVariableList == item.id"
+                [button_text]="item.name"
+                [remove_indicator_status]="true"
+                (click)="currentVariableList = item.id">
+              </nier-button>
+            </ion-col>
+            <ion-col size="3">
+              <nier-button
+                *ngFor="let item of Projects"
+                [hidden]="currentVariableNull == -1"
+                style="width: 100%; margin-bottom: .25em;"
+                [force_hover]="currentProject == item.id"
+                [button_text]="item.name"
+                [remove_indicator_status]="true"
+                (click)="SelectProject(item)">
+              </nier-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid style="--ion-grid-columns: 10; padding: 0;">
+          <ion-row>
+            <ion-col size="2">
+              <input type="text" class="wh-100" [(ngModel)]="input_variable_name" placeholder="VariableName">
+            </ion-col>
+            <ion-col size="2">
+              <input type="text" class="wh-100" [disabled]="currentVariableType != 7" [(ngModel)]="input_variable_type" placeholder="CustomVariableType">
+            </ion-col>
+            <ion-col size="2">
+              <nier-button [button_text]="'Generate'" style="width: 100%;" [remove_indicator_status]="true" [icon]="1" (click)="Generate()"></nier-button>
+            </ion-col>
+            <ion-col size="2">
+              <nier-button [button_text]="'Reset'"    style="width: 100%;" [remove_indicator_status]="true" [icon]="1" (click)="Reset()"></nier-button>
+            </ion-col>
+            <ion-col size="2">
+              <nier-button [button_text]="'Add Var'"  style="width: 100%;" [remove_indicator_status]="true" (click)="Add()" ></nier-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-row style="height: 100%;">
+          <ion-col size="12" style="max-width: fit-content !important;" class="mw">
+            <div class="wh-100 shadow code_">
+              <div class="nier-heading">
+                Code Files
+              </div>
+              <div style="padding: .5em;" *ngIf="currentProject != -1" >
+                <nier-button *ngFor="let item of Projects[currentProject].Files"
+                  [button_text]="item.name"
+                  [force_hover]="isFileCurrentlySelected(item.id)"
+                  [remove_indicator_status]="true"
+                  style="width: 100%; margin-bottom: .25em;"
+                  (click)="RemoveOrAddFile(item.id)"
+                >
+                </nier-button>
+                <!-- <nier-button [button_text]="'test'" (click)="Generate()"></nier-button> -->
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</main>

@@ -1,0 +1,105 @@
+$bgColor: #C8C2AA;
+$color: #4D493E;
+$letterSpacing: .1rem;
+$boxShadow: 3px 3px 0 rgba($color, .6);
+
+.string,
+.int,
+.long,
+.datetime,
+.bool,
+.float,
+.decimal,
+.custom{
+  width: 100%;
+  height: .25em;
+
+  border: 0;
+  border-bottom: .1em;
+  border-color: #4D493E;
+  border-style: solid;
+  //margin-bottom: .1em;
+  background-size: 4px 4px;
+  background-image: linear-gradient(90deg, transparent, transparent 3px, rgba(0,0,0,.07) 4px),
+  linear-gradient(transparent, transparent 3px, rgba(0,0,0,.07) 4px);
+  max-height: 3%;
+}
+
+.string{
+  background-color: rgb(128, 255, 0);
+}
+.int{
+  background-color: rgb(255, 0, 221);
+}
+.long{
+  background-color: aqua;
+}
+.datetime{
+  background-color: rgb(0, 255, 17);
+}
+.bool{
+  background-color: rgb(0, 0, 0);
+}
+.float{
+  background-color: rgb(246, 255, 0);
+}
+.decimal{
+  background-color: rgb(255, 81, 0);
+}
+.custom{
+  background-color: rgb(40, 126, 0);
+}
+
+.lmb{
+  margin-bottom: .25em
+}
+
+.box_variables{
+  background-size: 4px 4px;
+  background-image: linear-gradient(90deg, transparent, transparent 3px, rgba(0,0,0,.07) 4px),
+  linear-gradient(transparent, transparent 3px, rgba(0,0,0,.07) 4px);
+  height: 85%;
+  width: 100%;
+  background-color: #6a6960;
+  overflow: hidden;
+}
+
+#list_content{
+  background-color: #dcd8c0;
+  box-shadow: $boxShadow;
+}
+
+#list{
+  background-size: 4px 4px;
+  background-image: linear-gradient(90deg, transparent, transparent 3px, rgba(0,0,0,.07) 4px),
+  linear-gradient(transparent, transparent 3px, rgba(0,0,0,.07) 4px);
+  height: 78%;
+  width: 100%;
+  overflow: visible;
+}
+
+
+.va {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wh-100{
+  width: 100%;
+  height: 100%;
+}
+
+.code_{
+  height: 41.2%;
+  background-color: $bgColor;
+}
+
+.mw{
+  max-width: revert-layer !important;
+}
+
+.cl{
+  width: 100% !important;
+  max-width: 100% !important;
+}
